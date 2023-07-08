@@ -14,6 +14,7 @@
  * Update URI:        https://github.com/Codruz/Codruz_Reservation_Plugin
  */
 
+//for security
 if (!defined('ABSPATH')) exit;
 
 define( 'RESERVATION_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
