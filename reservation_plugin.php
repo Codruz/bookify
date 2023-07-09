@@ -6,7 +6,7 @@
  * Version:           0.1
  * Requires at least: 5.2
  * Requires PHP:      7.2
- * Author:            Codruz Group(MehdiREXON on this branch)
+ * Author:            Codruz Group
  * Author URI:        https://github.com/orgs/Codruz/
  * Text Domain:       reservation_plugin
  * License:           GPL v2 or later

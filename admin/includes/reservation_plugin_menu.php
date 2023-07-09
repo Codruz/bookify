@@ -12,11 +12,11 @@ function easy_reservation_settings_pages(): void
 	add_menu_page(
 		__( 'Reservation Plugin', 'Codruz_Reservation_Plugin' ),
 		__( 'Reservation', 'Codruz_Reservation_Plugin' ),
-		'manage_options',
-		'Codruz_Reservation_Plugin',
-		'easy_reservation_settings_page_markup',
-		'dashicons-screenoptions',
-		100
+		capability: 'manage_options',
+		menu_slug: 'Codruz_Reservation_Plugin',
+		callback: 'easy_reservation_settings_page_markup',
+		icon_url: 'dashicons-screenoptions',
+		position: 100
 	);
 
 }
