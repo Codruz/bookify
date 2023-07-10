@@ -40,7 +40,7 @@ function bookify_uninstall():void
 {
 	//for security
 	if ( ! defined( constant_name: 'WP_UNINSTALL_PLUGIN' ) ) die;
-	delete_option(option: 'bookify_configs');
+		delete_option(option: 'bookify_configs');
 }
 
 //register needed hooks
