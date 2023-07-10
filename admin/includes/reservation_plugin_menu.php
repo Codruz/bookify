@@ -18,7 +18,7 @@ function bookify_settings_pages(): void
 		'bookify',
 		__( 'Settings', 'bookify' ),
 		__( 'Settings', 'bookify' ),
-		'manage-options',
+		'manage_options',
 		'bookify-settings',
 		'bookify_settings_subpage_markup',
 	);
@@ -57,3 +57,9 @@ function bookify_settings_subpage_markup(): void
 	</div>
 	<?php
 }
+
+// Remove submenu with the name 'bookify'
+function remove_bookify_submenu_page() {
+    remove_submenu_page( 'bookify', 'bookify' );
+}
+add_action( 'admin_menu', 'remove_bookify_submenu_page', 999 );
