@@ -1,23 +1,59 @@
 <?php
-function easy_reservation_settings_page_markup(): void
-{
-	// Double check user capabilities
-	if ( !current_user_can('manage_options') ) return;
 
-	#include( EASY_RESERVATION_DIR . 'templates/admin/settings-page.php');
-}
-
-function easy_reservation_settings_pages(): void
+// Bookify Menue Pages
+function bookify_settings_pages(): void
 {
 	add_menu_page(
-		__( 'Reservation Plugin', 'Codruz_Reservation_Plugin' ),
-		__( 'Reservation', 'Codruz_Reservation_Plugin' ),
+		__( 'Bookify', 'bookify' ),
+		__( 'Bookify', 'bookify' ),
 		capability: 'manage_options',
-		menu_slug: 'Codruz_Reservation_Plugin',
-		callback: 'easy_reservation_settings_page_markup',
+		menu_slug: 'bookify',
+		callback: 'bookify_settings_page_markup',
 		icon_url: 'dashicons-screenoptions',
-		position: 100
+		position: 10
+	);
+
+	// Submenu Settings Page
+	add_submenu_page(
+		'bookify',
+		__( 'Settings', 'bookify' ),
+		__( 'Settings', 'bookify' ),
+		'manage-options',
+		'bookify-settings',
+		'bookify_settings_subpage_markup',
 	);
 
 }
-add_action( 'admin_menu', 'easy_reservation_settings_pages' );
+add_action( 'admin_menu', 'bookify_settings_pages' );
+
+// Bookify Menue Pages function
+function bookify_settings_page_markup(): void
+{
+	// Double check user capabilities
+	if ( !current_user_can('manage_options') ) {
+		return;
+	}
+	?>
+	<div class="wrap">
+	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <p><?php esc_html_e( 'Some content.', 'wpplugin' ); ?></p>
+  
+	</div>
+	<?php
+}
+
+// Submenu Settings Page
+function bookify_settings_subpage_markup(): void
+{
+	// Double check user capabilities
+	if ( !current_user_can('manage_options') ) {
+		return;
+	}
+	?>
+	<div class="wrap">
+	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <p><?php esc_html_e( 'Some content.', 'wpplugin' ); ?></p>
+  
+	</div>
+	<?php
+}
