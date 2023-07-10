@@ -27,4 +27,4 @@ register_activation_hook( __FILE__, 'bookify_activate' );
 
 //including hooks
 include (plugin_dir_path(__FILE__) . 'admin/includes/bookify_hooks.php');
-#include (plugin_dir_path(__FILE__) . 'admin/includes/bookify_menu.php');
+include (plugin_dir_path(__FILE__) . 'admin/includes/bookify_menu.php');
