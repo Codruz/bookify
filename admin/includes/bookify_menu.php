@@ -1,6 +1,6 @@
 <?php
 
-// Bookify Menue Pages
+// Bookify Menu Pages
 function bookify_settings_pages(): void
 {
 	add_menu_page(
@@ -16,17 +16,48 @@ function bookify_settings_pages(): void
 	// Submenu Settings Page
 	add_submenu_page(
 		'bookify',
-		__( 'Settings', 'bookify' ),
-		__( 'Settings', 'bookify' ),
+		__( 'settings', 'bookify' ),
+		__( 'settings', 'bookify' ),
 		'manage_options',
 		'bookify-settings',
 		'bookify_settings_subpage_markup',
 	);
 
+	// Submenu New Page
+	add_submenu_page(
+		'bookify',
+		__( 'new', 'bookify' ),
+		__( 'new', 'bookify' ),
+		'manage_options',
+		'bookify-new',
+		'bookify_new_subpage_markup',
+	);
+
+	// Submenu Inbox Page
+	add_submenu_page(
+		'bookify',
+		__( 'inbox', 'bookify' ),
+		__( 'inbox', 'bookify' ),
+		'manage_options',
+		'bookify-inbox',
+		'bookify_inbox_subpage_markup',
+	);
+
+	// Submenu Templates Page
+	add_submenu_page(
+		'bookify',
+		__( 'templates', 'bookify' ),
+		__( 'templates', 'bookify' ),
+		'manage_options',
+		'bookify-templates',
+		'bookify_templates_subpage_markup',
+	);
+
 }
 add_action( 'admin_menu', 'bookify_settings_pages' );
 
-// Bookify Menue Pages function
+
+// Bookify Menu Pages function
 function bookify_settings_page_markup(): void
 {
 	// Double check user capabilities
@@ -35,6 +66,7 @@ function bookify_settings_page_markup(): void
 	}
 	?>
 	<div class="wrap">
+
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
 	  <p><?php esc_html_e( 'Some content.', 'bookify' ); ?></p>
   
@@ -42,7 +74,7 @@ function bookify_settings_page_markup(): void
 	<?php
 }
 
-// Submenu Settings Page
+// Submenu Function Settings Page
 function bookify_settings_subpage_markup(): void
 {
 	// Double check user capabilities
@@ -51,6 +83,7 @@ function bookify_settings_subpage_markup(): void
 	}
 	?>
 	<div class="wrap">
+		
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
 	  <p><?php esc_html_e( 'Some content.', 'bookify' ); ?></p>
   
@@ -58,7 +91,58 @@ function bookify_settings_subpage_markup(): void
 	<?php
 }
 
-// Remove submenu with the name 'bookify'
+// Submenu Function New Page
+function bookify_new_subpage_markup(): void
+{
+	// Double check user capabilities
+	if ( !current_user_can('manage_options') ) {
+		return;
+	}
+	?>
+	<div class="wrap">
+
+	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <p><?php esc_html_e( 'Some content.', 'bookify' ); ?></p>
+  
+	</div>
+	<?php
+}
+
+// Submenu Function Inbox Page
+function bookify_inbox_subpage_markup(): void
+{
+	// Double check user capabilities
+	if ( !current_user_can('manage_options') ) {
+		return;
+	}
+	?>
+	<div class="wrap">
+
+	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <p><?php esc_html_e( 'Some content.', 'bookify' ); ?></p>
+
+	</div>
+	<?php
+}
+
+// Submenu Function Templates Page
+function bookify_templates_subpage_markup(): void
+{
+	// Double check user capabilities
+	if ( !current_user_can('manage_options') ) {
+		return;
+	}
+	?>
+	<div class="wrap">
+
+	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <p><?php esc_html_e( 'Some content.', 'bookify' ); ?></p>
+
+	</div>
+	<?php
+}
+
+// Remove bookify from its own sub-menu
 function remove_bookify_submenu_page() {
     remove_submenu_page( 'bookify', 'bookify' );
 }
