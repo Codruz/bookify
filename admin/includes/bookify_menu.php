@@ -182,6 +182,8 @@ function bookify_new_subpage_markup(): void
 		</div>
 
 	  </div>
+	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
+  
 	</div>
 	<?php
 }
