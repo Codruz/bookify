@@ -98,7 +98,7 @@ function bookify_new_subpage_markup(): void
 	if ( !current_user_can('manage_options') ) {
 		return;
 	}
-	?>
+	?><<<<<<<
 	<div class="wrap">
 
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
