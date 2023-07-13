@@ -102,6 +102,8 @@ function bookify_new_subpage_markup(): void
 	<div class="wrap">
 
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
+  
 	  <div class="border-with-text">
 	  	<div class="text">Seller</div>
 
