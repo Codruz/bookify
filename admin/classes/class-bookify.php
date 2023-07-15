@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @class : Bookify class
  */
@@ -16,12 +17,11 @@ class Bookify {
 
 	}
 
-	public function is_initialized(): bool
-	{
+	public function is_initialized(): bool {
 		return get_option( option: 'bookify_configs' )['is_initialized'];
 	}
-	public function get_version() : string
-	{
+
+	public function get_version(): string {
 		return get_option( option: 'bookify_configs' )['version'];
 	}
 }

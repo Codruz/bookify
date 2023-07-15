@@ -54,11 +54,11 @@ function bookify_uninstall(): void {
  * @Hooks
  */
 register_activation_hook( file: __FILE__, callback: 'bookify_activation' );
-register_deactivation_hook(file: __FILE__,callback: 'bookify_deactivation' );
-register_uninstall_hook(file: __FILE__,callback: 'bookify_uninstall' );
+register_deactivation_hook( file: __FILE__, callback: 'bookify_deactivation' );
+register_uninstall_hook( file: __FILE__, callback: 'bookify_uninstall' );
 
 /**
  * @Includes
  */
-include (plugin_dir_path(file: __FILE__) . 'admin/includes/bookify_hooks.php');
-include (plugin_dir_path(file:__FILE__) . 'admin/includes/bookify_menu.php');
+include( plugin_dir_path( file: __FILE__ ) . 'admin/includes/bookify_hooks.php' );
+include( plugin_dir_path( file: __FILE__ ) . 'admin/includes/bookify_menu.php' );
