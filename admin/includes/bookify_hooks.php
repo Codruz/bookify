@@ -1,15 +1,13 @@
 <?php
+//gets the object
+global $bookify;
+//if the main class was initialized
+if ( ! $bookify->is_initialized() ) {
+	die;
+}
 
-if(get_option('reservation_plugin_init')) reservation_plugin_activation_hook();
-function reservation_plugin_activation_hook(): void
-{
-	//welcome message for activating the plugin
-	add_action('admin_notices', 'welcome_message_hook');
+function bookify_styles_hook(): void {
+	wp_enqueue_style( handle: 'bookify-css', src: BOOKIFY_URL . "admin/css/style.css", deps: array(), ver: '0.1', media: 'all' );
 }
-function welcome_message_hook(): void
-{
-	?>
-    <div class="notice notice-success is-dismissible">
-        <p><?php echo esc_html__('The Reservation plugin has been successfully loaded. Thank you for using this plugin! For more information, please refer to the documentation.', 'reservation_plugin'); ?></p>    </div>
-	<?php
-}
+
+add_action( hook_name: 'wp_enqueue_scripts', callback: 'bookify_styles_hook' );

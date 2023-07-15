@@ -15,16 +15,50 @@
  */
 
 //for security
-if (!defined('ABSPATH')) exit;
-
-define( 'BOOKIFY_URL', plugin_dir_url( __FILE__ ) );
-define( 'BOOKIFY_URL_DIR', plugin_dir_path( __FILE__ ) );
-function bookify_activate(): void
-{
-	#update_option( 'bookify_configs', 'true' );
+if ( ! defined( constant_name: 'ABSPATH' ) ) {
+	exit;
 }
-register_activation_hook( __FILE__, 'bookify_activate' );
 
-//including hooks
-include (plugin_dir_path(__FILE__) . 'admin/includes/bookify_hooks.php');
-include (plugin_dir_path(__FILE__) . 'admin/includes/bookify_menu.php');
+define( 'BOOKIFY_URL', plugin_dir_url( file: __FILE__ ) );
+define( 'BOOKIFY_DIR', plugin_dir_path( file: __FILE__ ) );
+const BOOKIFY_VER = "0.1";
+
+/**
+ * @Main_Object
+ */
+global $bookify;
+require_once BOOKIFY_DIR . "admin/classes/class-bookify.php";
+$bookify = new Bookify();
+
+/**
+ * @Callback_functions
+ */
+function bookify_activation(): void {
+
+}
+
+function bookify_deactivation(): void {
+	// Clear the permalinks after the post type has been registered.
+	flush_rewrite_rules();
+}
+
+function bookify_uninstall(): void {
+	//for security
+	if ( ! defined( constant_name: 'WP_UNINSTALL_PLUGIN' ) ) {
+		die;
+	}
+	delete_option( option: 'bookify_configs' );//deletes a row in wp-options
+}
+
+/**
+ * @Hooks
+ */
+register_activation_hook( file: __FILE__, callback: 'bookify_activation' );
+register_deactivation_hook( file: __FILE__, callback: 'bookify_deactivation' );
+register_uninstall_hook( file: __FILE__, callback: 'bookify_uninstall' );
+
+/**
+ * @Includes
+ */
+include( plugin_dir_path( file: __FILE__ ) . 'admin/includes/bookify_hooks.php' );
+include( plugin_dir_path( file: __FILE__ ) . 'admin/includes/bookify_menu.php' );

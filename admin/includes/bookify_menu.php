@@ -16,40 +16,40 @@ function bookify_settings_pages(): void
 	// Submenu Settings Page
 	add_submenu_page(
 		'bookify',
-		__( 'settings', 'bookify' ),
-		__( 'settings', 'bookify' ),
+		__( 'Settings', 'bookify' ),
+		__( 'Settings', 'bookify' ),
 		'manage_options',
-		'bookify-settings',
+		'bookify_settings',
 		'bookify_settings_subpage_markup',
 	);
 
 	// Submenu New Page
 	add_submenu_page(
 		'bookify',
-		__( 'new', 'bookify' ),
-		__( 'new', 'bookify' ),
+		__( 'New', 'bookify' ),
+		__( 'New', 'bookify' ),
 		'manage_options',
-		'bookify-new',
+		'bookify_new',
 		'bookify_new_subpage_markup',
 	);
 
 	// Submenu Inbox Page
 	add_submenu_page(
 		'bookify',
-		__( 'inbox', 'bookify' ),
-		__( 'inbox', 'bookify' ),
+		__( 'Inbox', 'bookify' ),
+		__( 'Inbox', 'bookify' ),
 		'manage_options',
-		'bookify-inbox',
+		'bookify_inbox',
 		'bookify_inbox_subpage_markup',
 	);
 
 	// Submenu Templates Page
 	add_submenu_page(
 		'bookify',
-		__( 'templates', 'bookify' ),
-		__( 'templates', 'bookify' ),
+		__( 'Templates', 'bookify' ),
+		__( 'Templates', 'bookify' ),
 		'manage_options',
-		'bookify-templates',
+		'bookify_templates',
 		'bookify_templates_subpage_markup',
 	);
 
@@ -85,7 +85,7 @@ function bookify_settings_subpage_markup(): void
 	<div class="wrap">
 		
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
-	  <p><?php esc_html_e( 'Some content.', 'bookify' ); ?></p>
+	  <p><?php esc_html_e( 'Setting fields', 'bookify' ); ?></p>
   
 	</div>
 	<?php
@@ -102,6 +102,8 @@ function bookify_new_subpage_markup(): void
 	<div class="wrap">
 
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
+  
 	  <div class="border-with-text">
 	  	<div class="text">Seller</div>
 
@@ -180,6 +182,8 @@ function bookify_new_subpage_markup(): void
 		</div>
 
 	  </div>
+	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
+  
 	</div>
 	<?php
 }
@@ -195,7 +199,7 @@ function bookify_inbox_subpage_markup(): void
 	<div class="wrap">
 
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
-	  <p><?php esc_html_e( 'Some content.', 'bookify' ); ?></p>
+	  <p><?php esc_html_e( 'Inbox fields', 'bookify' ); ?></p>
 
 	</div>
 	<?php
@@ -212,7 +216,7 @@ function bookify_templates_subpage_markup(): void
 	<div class="wrap">
 
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
-	  <p><?php esc_html_e( 'Some content.', 'bookify' ); ?></p>
+	  <p><?php esc_html_e( 'Template fields', 'bookify' ); ?></p>
 
 	</div>
 	<?php
