@@ -1,20 +1,27 @@
 <?php
-//main class
-class Bookify
-{
-	private string $version;
-	private bool $is_initialized = false;
-	public function __construct(string $version)
-	{
-		$this->is_initialized = true;
-		$this->version = $version;
+/**
+ * @class : Bookify class
+ */
+class Bookify {
+	private array $configs = array( 'is_initialized' => false, 'version' => null );
+
+	public function __construct() {
+		$this->configs['is_initialized'] = true;
+		$this->configs['version']        = '0.1';
+
+		if ( ! get_option( option: 'bookify_configs' ) ) {
+			add_option( option: 'bookify_configs', value: $this->configs );
+		}
+		update_option( option: 'bookify_configs', value: $this->configs );
+
 	}
-	public function is_initialized() : bool
+
+	public function is_initialized(): bool
 	{
-		return $this->is_initialized;
+		return get_option( option: 'bookify_configs' )['is_initialized'];
 	}
 	public function get_version() : string
 	{
-		return $this->version;
+		return get_option( option: 'bookify_configs' )['version'];
 	}
 }
