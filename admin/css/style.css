@@ -1,14 +1,40 @@
-.border-with-text {
-    position: relative;
-    border: 1px solid #000;
-    padding: 30px;
-  }
-  
-  .text {
-    position: absolute;
-    top: -3%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 5px;
-  }
+.new-fieldset {
+  border: 1px solid black;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.new-fieldset label {
+  vertical-align: text-top;
+  font-weight: 600;
+  display: inline-block;
+  width: 100px;
+}
+
+.new-fieldset input, select {
+  margin-bottom: 10px;
+}
+
+.addnew-button {
+  color: #2271b1;
+  background: #f6f7f7;
+  border: 1px solid #2271b1;
+  border-radius: 2px;
+  font-weight: 600;
+  margin-left: 4px;
+  padding: 4px 8px;
+  text-decoration: none; 
+}
+
+.button-submit {
+  background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+    text-shadow: none;
+    font-size: 13px;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    border-style: solid;
+    border-radius: 3px;
+}

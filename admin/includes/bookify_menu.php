@@ -13,14 +13,22 @@ function bookify_settings_pages(): void
 		position: 10
 	);
 
-	// Submenu Settings Page
+	// Submenu Inbox Page
 	add_submenu_page(
 		'bookify',
+
+		__( 'Inbox', 'bookify' ),
+		__( 'Inbox', 'bookify' ),
+		'manage_options',
+		'bookify_inbox',
+		'bookify_inbox_subpage_markup',
+
 		__( 'Settings', 'bookify' ),
 		__( 'Settings', 'bookify' ),
 		'manage_options',
 		'bookify_settings',
 		'bookify_settings_subpage_markup',
+
 	);
 
 	// Submenu New Page
@@ -33,9 +41,16 @@ function bookify_settings_pages(): void
 		'bookify_new_subpage_markup',
 	);
 
-	// Submenu Inbox Page
+	// Submenu Templates Page
 	add_submenu_page(
 		'bookify',
+
+		__( 'Templates', 'bookify' ),
+		__( 'Templates', 'bookify' ),
+		'manage_options',
+		'bookify_templates',
+		'bookify_templates_subpage_markup',
+
 		__( 'Inbox', 'bookify' ),
 		__( 'Inbox', 'bookify' ),
 		'manage_options',
@@ -43,9 +58,15 @@ function bookify_settings_pages(): void
 		'bookify_inbox_subpage_markup',
 	);
 
-	// Submenu Templates Page
+	// Submenu Settings Page
 	add_submenu_page(
 		'bookify',
+
+		__( 'Settings', 'bookify' ),
+		__( 'Settings', 'bookify' ),
+		'manage_options',
+		'bookify_settings',
+		'bookify_settings_subpage_markup',
 		__( 'Templates', 'bookify' ),
 		__( 'Templates', 'bookify' ),
 		'manage_options',
@@ -101,86 +122,88 @@ function bookify_new_subpage_markup(): void
 	?>
 	<div class="wrap">
 
+	  <h1><?php esc_html_e( 'New Reservation', 'bookify' ); ?></h1>
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
 	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
   
 	  <div class="border-with-text">
 	  	<div class="text">Seller</div>
 
-		<div class="fields">
-			<label for="servicename"><?php esc_html_e( 'Service name', 'bookify' ); ?></label>
-			<input type="text" id="servicename">
-		</div>
-		
-		<div class="fields">
-			<label for="hostname"><?php esc_html_e( 'Host name', 'bookify' ); ?></label>
-			<select name="seller" id="hostname">
-				<option value="select" selected="true" disabled="disable"><?php esc_html_e( 'Select', 'bookify' ); ?></option>
-				<option value="test"><?php esc_html_e( 'test', 'bookify' ); ?></option>
-			</select>
-		</div>
-
-	  </div>
-
-	  <br><br><br>
+	  <br>
 
 	  <div class="border-with-text">
-	  	<div class="text">Customer</div>
 		
-		<div class="fields">
-			<label for="user"><?php esc_html_e( 'User', 'bookify' ); ?></label>
-			<input type="search" id="user">
-			<button><a href="#"><?php esc_html_e( 'add new', 'bookify' ); ?></a></button>
-		</div>
-		
-		<div class="fields">
-			<label for="fullname"><?php esc_html_e( 'Full name', 'bookify' ); ?></label>
-			<input type="text" id="fullname">
-		</div>
+		<form action="">
+			<fieldset class="new-fieldset">
+				
+				<legend><?php esc_html_e( 'Seller', 'bookify' ); ?></legend>
 
-	  </div>
+				<label for="servicename"><?php esc_html_e( 'Service name', 'bookify' ); ?></label>
+				<input type="text" id="servicename">
 
-	  <br><br><br>
+				<br><br>
 
-	  <div class="border-with-text">
-	  	<div class="text">Service</div>
+				<label for="hostname"><?php esc_html_e( 'Host name', 'bookify' ); ?></label>
+				<select name="seller" id="hostname">
+					<option value="select" selected="true" disabled="disable"><?php esc_html_e( 'Select', 'bookify' ); ?></option>
+					<option value="test"><?php esc_html_e( 'test', 'bookify' ); ?></option>
+				</select>
 
-		<div class="fields">
-			test content
-		</div>
+			</fieldset>
+			<fieldset class="new-fieldset">
 
-	  </div>
+				<legend><?php esc_html_e( 'Customer', 'bookify' ); ?></legend>
 
-	  <br><br><br>
+				<label for="user"><?php esc_html_e( 'User', 'bookify' ); ?></label>
+				<input type="search" id="user">
+				<a class="addnew-button" href="#"><?php esc_html_e( 'Add New', 'bookify' ); ?></a>
 
-	  <div class="border-with-text">
-	  	<div class="text">Details</div>
-		
-		<div class="fields">
-			<label for="price"><?php esc_html_e( 'Price', 'bookify' ); ?></label>
-			<input type="number" id="price">
-		</div>
-		
-		<div class="fields">
-			<label for="date&time"><?php esc_html_e( 'Date & Time', 'bookify' ); ?></label>
-			<input type="date" id="date&time">
-			<input type="time" id="date&time">
-		</div>
+				<br><br>
 
-		<div class="fields">
-			<label for="paided"><?php esc_html_e( 'Was it paided before', 'bookify' ); ?></label>
-			<select name="details" id="paided">
-				<option value="select" selected="true" disabled="disable"><?php esc_html_e( 'Select', 'bookify' ); ?></option>
-				<option value="yes"><?php esc_html_e( 'Yes', 'bookify' ); ?></option>
-				<option value="no"><?php esc_html_e( 'No', 'bookify' ); ?></option>
-			</select>
-		</div>
+				<label for="fullname"><?php esc_html_e( 'Full name', 'bookify' ); ?></label>
+				<input type="text" id="fullname">
 
-		<div class="fields">
-			<label for="location"><?php esc_html_e( 'Location', 'bookify' ); ?></label>
-			<input type="text" id="location">
-		</div>
+				<br><br>
 
+				<label for="phonenumber"><?php esc_html_e( 'Phone number', 'bookify' ); ?></label>
+				<input type="number" id="phonenumber">
+
+			</fieldset>
+			<fieldset class="new-fieldset">
+				<legend><?php esc_html_e( 'Service', 'bookify' ); ?></legend>
+
+				Nothing
+
+			</fieldset>
+			<fieldset class="new-fieldset">
+				<legend><?php esc_html_e( 'Details', 'bookify' ); ?></legend>
+
+				<label for="price"><?php esc_html_e( 'Price', 'bookify' ); ?></label>
+				<input type="number" id="price">
+				
+				<br><br>
+
+				<label for="date&time"><?php esc_html_e( 'Date & Time', 'bookify' ); ?></label>
+				<input type="date" id="date&time">
+				<input type="time" id="date&time">
+
+				<br><br>
+				
+				<label for="paided"><?php esc_html_e( 'Was it paided before', 'bookify' ); ?></label>
+				<select name="details" id="paided">
+					<option value="select" selected="true" disabled="disable"><?php esc_html_e( 'Select', 'bookify' ); ?></option>
+					<option value="yes"><?php esc_html_e( 'Yes', 'bookify' ); ?></option>
+					<option value="no"><?php esc_html_e( 'No', 'bookify' ); ?></option>
+				</select>
+
+				<br><br>
+
+				<label for="location"><?php esc_html_e( 'Location', 'bookify' ); ?></label>
+				<input type="text" id="location">
+
+			</fieldset>
+			<input type="submit" name="submit" id="submit" class="button-submit" value="Reserve">
+		</form>
 	  </div>
 	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
   
