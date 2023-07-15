@@ -16,11 +16,19 @@ function bookify_settings_pages(): void
 	// Submenu Inbox Page
 	add_submenu_page(
 		'bookify',
+
 		__( 'Inbox', 'bookify' ),
 		__( 'Inbox', 'bookify' ),
 		'manage_options',
 		'bookify_inbox',
 		'bookify_inbox_subpage_markup',
+
+		__( 'Settings', 'bookify' ),
+		__( 'Settings', 'bookify' ),
+		'manage_options',
+		'bookify_settings',
+		'bookify_settings_subpage_markup',
+
 	);
 
 	// Submenu New Page
@@ -36,21 +44,34 @@ function bookify_settings_pages(): void
 	// Submenu Templates Page
 	add_submenu_page(
 		'bookify',
+
 		__( 'Templates', 'bookify' ),
 		__( 'Templates', 'bookify' ),
 		'manage_options',
 		'bookify_templates',
 		'bookify_templates_subpage_markup',
+
+		__( 'Inbox', 'bookify' ),
+		__( 'Inbox', 'bookify' ),
+		'manage_options',
+		'bookify_inbox',
+		'bookify_inbox_subpage_markup',
 	);
 
 	// Submenu Settings Page
 	add_submenu_page(
 		'bookify',
+
 		__( 'Settings', 'bookify' ),
 		__( 'Settings', 'bookify' ),
 		'manage_options',
 		'bookify_settings',
 		'bookify_settings_subpage_markup',
+		__( 'Templates', 'bookify' ),
+		__( 'Templates', 'bookify' ),
+		'manage_options',
+		'bookify_templates',
+		'bookify_templates_subpage_markup',
 	);
 
 }
@@ -102,6 +123,11 @@ function bookify_new_subpage_markup(): void
 	<div class="wrap">
 
 	  <h1><?php esc_html_e( 'New Reservation', 'bookify' ); ?></h1>
+	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
+  
+	  <div class="border-with-text">
+	  	<div class="text">Seller</div>
 
 	  <br>
 
@@ -179,6 +205,8 @@ function bookify_new_subpage_markup(): void
 			<input type="submit" name="submit" id="submit" class="button-submit" value="Reserve">
 		</form>
 	  </div>
+	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
+  
 	</div>
 	<?php
 }

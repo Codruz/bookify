@@ -12,3 +12,7 @@ function bookify_styles_hook(): void {
 }
 
 add_action( hook_name: 'admin_print_styles', callback: 'bookify_styles_hook' );
+	wp_enqueue_style( handle: 'bookify-css', src: BOOKIFY_URL . "admin/css/style.css", deps: array(), ver: '0.1', media: 'all' );
+}
+
+add_action( hook_name: 'wp_enqueue_scripts', callback: 'bookify_styles_hook' );
