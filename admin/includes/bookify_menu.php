@@ -123,6 +123,8 @@ function bookify_new_subpage_markup(): void
 	<div class="wrap">
 
 	  <h1><?php esc_html_e( 'New Reservation', 'bookify' ); ?></h1>
+  
+	  <div class="border-with-text">
 	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
 	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
   
@@ -132,6 +134,7 @@ function bookify_new_subpage_markup(): void
 	  <br>
 
 	  <div class="border-with-text">
+
 		
 		<form action="">
 			<fieldset class="new-fieldset">
@@ -202,12 +205,44 @@ function bookify_new_subpage_markup(): void
 				<input type="text" id="location">
 
 			</fieldset>
+
+			</fieldset>
+			<fieldset class="new-fieldset">
+				<legend><?php esc_html_e( 'Service', 'bookify' ); ?></legend>
+
+				Nothing
+
+			</fieldset>
+			<fieldset class="new-fieldset">
+				<legend><?php esc_html_e( 'Details', 'bookify' ); ?></legend>
+
+				<label for="price"><?php esc_html_e( 'Price', 'bookify' ); ?></label>
+				<input type="number" id="price">
+				
+				<br><br>
+
+				<label for="date&time"><?php esc_html_e( 'Date & Time', 'bookify' ); ?></label>
+				<input type="date" id="date&time">
+				<input type="time" id="date&time">
+
+				<br><br>
+				
+				<label for="paided"><?php esc_html_e( 'Was it paided before', 'bookify' ); ?></label>
+				<select name="details" id="paided">
+					<option value="select" selected="true" disabled="disable"><?php esc_html_e( 'Select', 'bookify' ); ?></option>
+					<option value="yes"><?php esc_html_e( 'Yes', 'bookify' ); ?></option>
+					<option value="no"><?php esc_html_e( 'No', 'bookify' ); ?></option>
+				</select>
+
+				<br><br>
+
+				<label for="location"><?php esc_html_e( 'Location', 'bookify' ); ?></label>
+				<input type="text" id="location">
+
+			</fieldset>
 			<input type="submit" name="submit" id="submit" class="button-submit" value="Reserve">
 		</form>
 	  </div>
-	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
-  
-	</div>
 	<?php
 }
 
@@ -221,8 +256,28 @@ function bookify_inbox_subpage_markup(): void
 	?>
 	<div class="wrap">
 
-	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
-	  <p><?php esc_html_e( 'Inbox fields', 'bookify' ); ?></p>
+	  <h1><?php esc_html_e( 'Reserves', 'bookify' ); ?></h1>
+
+	  <table class="inbox-table">
+		<thead class="table-head">
+			<tr>
+				<th><?php esc_html_e( 'ID', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Provider', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Customer ID', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Customer name', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Date', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Start time', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'End time', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Status', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Actions', 'bookify' ); ?></th>
+			</tr>
+		</thead>
+		<tbody class="table-date">
+			<tr>
+				<td>1</td>
+			</tr>
+		</tbody>
+	  </table>
 
 	</div>
 	<?php
@@ -238,9 +293,29 @@ function bookify_templates_subpage_markup(): void
 	?>
 	<div class="wrap">
 
-	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
-	  <p><?php esc_html_e( 'Template fields', 'bookify' ); ?></p>
+	  <h1 class="display-inline"><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <a class="addnew-button" href="#"><?php esc_html_e( 'Add New', 'bookify' ); ?></a>
 
+	  <table class="inbox-table">
+		<thead class="table-head">
+			<tr>
+				<th><?php esc_html_e( 'ID', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Provider', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Customer ID', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Customer name', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Date', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Start time', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'End time', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Status', 'bookify' ); ?></th>
+				<th><?php esc_html_e( 'Actions', 'bookify' ); ?></th>
+			</tr>
+		</thead>
+		<tbody class="table-date">
+			<tr>
+				<td>1</td>
+			</tr>
+		</tbody>
+	  </table>
 	</div>
 	<?php
 }
