@@ -125,6 +125,16 @@ function bookify_new_subpage_markup(): void
 	  <h1><?php esc_html_e( 'New Reservation', 'bookify' ); ?></h1>
   
 	  <div class="border-with-text">
+	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
+	  <p><?php esc_html_e( 'New fields', 'bookify' ); ?></p>
+  
+	  <div class="border-with-text">
+	  	<div class="text">Seller</div>
+
+	  <br>
+
+	  <div class="border-with-text">
+
 		
 		<form action="">
 			<fieldset class="new-fieldset">
@@ -160,6 +170,41 @@ function bookify_new_subpage_markup(): void
 
 				<label for="phonenumber"><?php esc_html_e( 'Phone number', 'bookify' ); ?></label>
 				<input type="number" id="phonenumber">
+
+			</fieldset>
+			<fieldset class="new-fieldset">
+				<legend><?php esc_html_e( 'Service', 'bookify' ); ?></legend>
+
+				Nothing
+
+			</fieldset>
+			<fieldset class="new-fieldset">
+				<legend><?php esc_html_e( 'Details', 'bookify' ); ?></legend>
+
+				<label for="price"><?php esc_html_e( 'Price', 'bookify' ); ?></label>
+				<input type="number" id="price">
+				
+				<br><br>
+
+				<label for="date&time"><?php esc_html_e( 'Date & Time', 'bookify' ); ?></label>
+				<input type="date" id="date&time">
+				<input type="time" id="date&time">
+
+				<br><br>
+				
+				<label for="paided"><?php esc_html_e( 'Was it paided before', 'bookify' ); ?></label>
+				<select name="details" id="paided">
+					<option value="select" selected="true" disabled="disable"><?php esc_html_e( 'Select', 'bookify' ); ?></option>
+					<option value="yes"><?php esc_html_e( 'Yes', 'bookify' ); ?></option>
+					<option value="no"><?php esc_html_e( 'No', 'bookify' ); ?></option>
+				</select>
+
+				<br><br>
+
+				<label for="location"><?php esc_html_e( 'Location', 'bookify' ); ?></label>
+				<input type="text" id="location">
+
+			</fieldset>
 
 			</fieldset>
 			<fieldset class="new-fieldset">
