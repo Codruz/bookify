@@ -274,7 +274,10 @@ function bookify_inbox_subpage_markup(): void
 		</thead>
 		<tbody class="table-date">
 			<tr>
-				<td>1</td>
+				<td>table date 1</td>
+				<td>table date 2</td>
+				<td>table date 3</td>
+				<td>table date 4</td>
 			</tr>
 		</tbody>
 	  </table>
@@ -312,7 +315,7 @@ function bookify_templates_subpage_markup(): void
 		</thead>
 		<tbody class="table-date">
 			<tr>
-				<td>1</td>
+
 			</tr>
 		</tbody>
 	  </table>
