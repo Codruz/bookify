@@ -63,34 +63,19 @@ add_action( 'admin_menu', 'bookify_settings_pages' );
 function bookify_settings_page_markup(): void
 {
 	// Double check user capabilities
-	if ( !current_user_can('manage_options') ) {
+	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
-	?>
-	<div class="wrap">
-
-	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
-	  <p><?php esc_html_e( 'Some content.', 'bookify' ); ?></p>
-
-	</div>
-	<?php
+	require_once BOOKIFY_DIR . "admin/templates/bookify_setting.php";
 }
 
 // Submenu Function Settings Page
 function bookify_settings_subpage_markup(): void
 {
 	// Double check user capabilities
-	if ( !current_user_can('manage_options') ) {
+	if ( ! current_user_can( 'manage_options' ) )
 		return;
-	}
-	?>
-	<div class="wrap">
-
-	  <h1><?php esc_html_e( get_admin_page_title() ); ?></h1>
-	  <p><?php esc_html_e( 'Setting fields', 'bookify' ); ?></p>
-
-	</div>
-	<?php
+	require_once BOOKIFY_DIR . "admin/templates/bookify_setting.php";
 }
 
 // Submenu Function New Page
@@ -101,7 +86,7 @@ function bookify_new_subpage_markup(): void
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
-	require_once BOOKIFY_DIR . "admin/templates/bookify_setting.php";
+	require_once BOOKIFY_DIR . "admin/templates/bookify_new.php";
 }
 
 // Submenu Function Inbox Page

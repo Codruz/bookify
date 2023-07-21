@@ -33,34 +33,16 @@ $BOOKIFY = new Bookify();
 #var_dump($obj->data->user_pass);
 
 /**
- * @Callback_functions
+ * @Includes
  */
-function bookify_activation(): void {
-
-}
-
-function bookify_deactivation(): void {
-	// Clear the permalinks after the post type has been registered.
-	flush_rewrite_rules();
-}
-
-function bookify_uninstall(): void {
-	//for security
-	if ( ! defined( constant_name: 'WP_UNINSTALL_PLUGIN' ) ) {
-		die;
-	}
-	delete_option( option: 'bookify_configs' );//deletes a row in wp-options
-}
+require_once plugin_dir_path( __FILE__ ) . 'admin/includes/bookify_hooks.php';
+require_once plugin_dir_path( file: __FILE__ ) . 'admin/includes/bookify_menu.php';
 
 /**
  * @Hooks
  */
+
 register_activation_hook( file: __FILE__, callback: 'bookify_activation' );
 register_deactivation_hook( file: __FILE__, callback: 'bookify_deactivation' );
 register_uninstall_hook( file: __FILE__, callback: 'bookify_uninstall' );
 
-/**
- * @Includes
- */
-include( plugin_dir_path( file: __FILE__ ) . 'admin/includes/bookify_hooks.php' );
-include( plugin_dir_path( file: __FILE__ ) . 'admin/includes/bookify_menu.php' );
