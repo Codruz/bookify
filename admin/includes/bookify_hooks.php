@@ -1,8 +1,8 @@
 <?php
 //gets the object
-global $bookify;
+global $BOOKIFY;
 //if the main class was initialized
-if ( ! $bookify->is_initialized() ) {
+if ( ! $BOOKIFY->is_initialized() ) {
 	die;
 }
 

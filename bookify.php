@@ -26,9 +26,11 @@ const BOOKIFY_VER = "0.1";
 /**
  * @Main_Object
  */
-global $bookify;
+global $BOOKIFY;
 require_once BOOKIFY_DIR . "admin/classes/class-bookify.php";
-$bookify = new Bookify();
+$BOOKIFY = new Bookify();
+#$obj = get_users()[0];
+#var_dump($obj->data->user_pass);
 
 /**
  * @Callback_functions
